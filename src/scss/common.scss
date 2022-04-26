@@ -1,4 +1,10 @@
 .heading-content {
+    &_right {
+        @media (min-width: $mobile) {
+            text-align: right;
+        }
+    }
+
     &__subtitle {
         font-weight: 700;
         font-size: rem(23);
@@ -11,6 +17,7 @@
         }
     }
     &__spoon {
+        display: inline-flex;
         width: rem(40);
         &:not(:last-child) {
             margin-bottom: rem(8);
@@ -19,18 +26,28 @@
             max-width: 100%;
         }
         &_reverse {
-            transform: rotate(-180deg);
+            @media (min-width: $mobile) {
+                transform: rotate(-180deg);
+            }
+        }
+        &_after {
+            transform: translate(0px, rem(-16));
+            @media (min-width: $mobile) {
+                &.heading-content__spoon_reverse {
+                    transform: rotate(-180deg) translate(0px, rem(16));
+                }
+            }
         }
     }
 
     h1.heading-content__title {
         font-weight: 700;
-        @include adaptiveValue("font-size", 90, 38, 1300, 479.98, 1);
+        @include adaptiveValue("font-size", 90, 42, 1300, 479.98, 1);
         letter-spacing: 0.04em;
     }
     h2.heading-content__title {
         font-weight: 600;
-        @include adaptiveValue("font-size", 64, 32, 1300, 479.98, 1);
+        @include adaptiveValue("font-size", 64, 36, 1300, 479.98, 1);
         letter-spacing: 0.03em;
     }
 
