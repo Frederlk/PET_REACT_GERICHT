@@ -1,1 +1,67 @@
-// Заголовки, общие БЄМ блоки и проче...
+.heading-content {
+    &__subtitle {
+        font-weight: 700;
+        font-size: rem(23);
+        line-height: 130%;
+        letter-spacing: 0.04em;
+        text-transform: capitalize;
+        font-feature-settings: "tnum" on, "lnum" on;
+        &:not(:last-child) {
+            margin-bottom: rem(8);
+        }
+    }
+    &__spoon {
+        width: rem(40);
+        &:not(:last-child) {
+            margin-bottom: rem(8);
+        }
+        img {
+            max-width: 100%;
+        }
+        &_reverse {
+            transform: rotate(-180deg);
+        }
+    }
+
+    h1.heading-content__title {
+        font-weight: 700;
+        @include adaptiveValue("font-size", 90, 38, 1300, 479.98, 1);
+        letter-spacing: 0.04em;
+    }
+    h2.heading-content__title {
+        font-weight: 600;
+        @include adaptiveValue("font-size", 64, 32, 1300, 479.98, 1);
+        letter-spacing: 0.03em;
+    }
+
+    &__title {
+        line-height: 130%;
+        text-transform: capitalize;
+        color: $primary-1;
+        &:not(:last-child) {
+            margin-bottom: rem(24);
+            .gap & {
+                @include adaptiveValue("margin-bottom", 32, 24, 1300, 767.98, 1);
+            }
+        }
+    }
+
+    &__text {
+        font-family: "Open Sans";
+        line-height: 175%;
+        letter-spacing: 0.04em;
+        color: $gray-1;
+        &:not(:last-child) {
+            margin-bottom: rem(24);
+            .gap & {
+                @include adaptiveValue("margin-bottom", 32, 24, 1300, 767.98, 1);
+            }
+        }
+    }
+
+    &__button {
+        @media (max-width: $mobileSmall) {
+            width: 100%;
+        }
+    }
+}

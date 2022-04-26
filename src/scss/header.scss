@@ -1,54 +1,237 @@
-//====================================================================================================
+.header {
+    position: relative;
+    z-index: 100;
+    &__wrapper {
+        position: relative;
+        margin: 0 auto;
+        max-width: rem(1710);
+        padding: rem(5) rem(15);
+        min-height: rem(120);
+        display: flex;
+        @include adaptiveValue("gap", 60, 40, 1170, 991.98, 1);
+        align-items: center;
+        @media (min-width: em(1170)) {
+            justify-content: space-between;
+        }
+        @media (max-width: $tablet) {
+            gap: rem(32);
+            min-height: rem(90);
+        }
+        @media (max-width: $mobile) {
+            min-height: rem(70);
+            gap: rem(24);
+        }
+    }
 
-//====================================================================================================
+    &__logo-wrap {
+        position: relative;
+        z-index: 10;
+    }
 
-//Burger
-/*
-.icon-menu {
-	display: none;
-	@media (max-width: $mobile) {
-		display: block;
-		position: relative;
-		width: rem(30);
-		height: rem(18);
-		cursor: pointer;
-		z-index: 5;
-		span,
-		&::before,
-		&::after {
-			content: "";
-			transition: all 0.3s ease 0s;
-			right: 0;
-			position: absolute;
-			width: 100%;
-			height: rem(2);
-			background-color: #000;
-		}
-		&::before {
-			top: 0;
-		}
-		&::after {
-			bottom: 0;
-		}
-		span {
-			top: calc(50% - rem(1));
-		}
-		.menu-open & {
-			span {
-				width: 0;
-			}
-			&::before,
-			&::after {
-			}
-			&::before {
-				top: calc(50% - rem(1));
-				transform: rotate(-45deg);
-			}
-			&::after {
-				bottom: calc(50% - rem(1));
-				transform: rotate(45deg);
-			}
-		}
-	}
+    &__logo {
+        font-weight: 700;
+        @include adaptiveValue("font-size", 44, 34);
+        line-height: 130%;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+
+        transition: all 0.3s ease 0s;
+        @media (any-hover: hover) {
+            &:hover {
+                color: $primary-1;
+            }
+        }
+    }
+
+    &__menu {
+        @media (min-width: em(1170)) {
+            position: absolute;
+            left: 50%;
+            transform: translate(-50%, 0px);
+        }
+        @media (max-width: em(1170)) {
+            flex: 1 1 auto;
+        }
+    }
+
+    &__buttons {
+        position: relative;
+        z-index: 10;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        @include adaptiveValue("column-gap", 50, 16, 1680, 1170, 1);
+    }
+
+    &__line {
+        flex: 0 0 rem(2);
+        @media (max-width: $mobile) {
+            display: none;
+        }
+    }
+
+    &__button {
+        font-family: "Open Sans";
+        font-weight: 600;
+        line-height: 175%;
+        letter-spacing: 0.05em;
+        text-transform: capitalize;
+        text-align: center;
+
+        transition: all 0.3s ease 0s;
+        @media (any-hover: hover) {
+            &:hover {
+                color: $primary-1;
+            }
+        }
+    }
+    &__icon {
+    }
 }
-*/
+
+.menu {
+    &__body {
+        @media (max-width: $tablet) {
+            position: fixed;
+            width: 50%;
+            height: 100%;
+            top: 0;
+            right: -50%;
+            padding: rem(120) rem(15) rem(30) rem(15);
+            background-color: $dark-3;
+            overflow: auto;
+            transition: all 0.5s ease 0s;
+            &::before {
+                content: "";
+                position: fixed;
+                width: 50%;
+                height: rem(90);
+                top: 0;
+                right: -50%;
+                background-color: $dark-3;
+            }
+            .menu-open & {
+                right: 0;
+                &::before {
+                    right: 0;
+                }
+            }
+        }
+        @media (max-width: $mobile) {
+            padding-top: rem(90);
+            right: -100%;
+            width: 100%;
+            &::before {
+                width: 100%;
+                right: -100%;
+                height: rem(70);
+            }
+            .header__button {
+                padding-top: rem(30);
+                font-size: rem(20);
+            }
+        }
+        @media (max-width: em(400)) {
+            .header__button:first-child {
+                padding-top: rem(0);
+                padding-bottom: rem(20);
+            }
+        }
+    }
+
+    &__list {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        @include adaptiveValue("column-gap", 32, 16, 1300, 991.98, 1);
+        @media (max-width: $tablet) {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: rem(16);
+        }
+    }
+
+    &__item {
+        @media (min-width: $tablet) {
+            padding: rem(5) 0px;
+        }
+    }
+
+    &__link {
+        font-family: "Open Sans";
+        line-height: 175%;
+        letter-spacing: 0.04em;
+
+        transition: all 0.3s ease 0s;
+        @media (any-hover: hover) {
+            &:hover {
+                color: $primary-1;
+            }
+        }
+
+        @media (max-width: $tablet) {
+            font-size: rem(20);
+        }
+    }
+}
+
+//========================================================================================================================================================
+
+.icon-menu {
+    display: none;
+    @media (max-width: $tablet) {
+        display: block;
+        position: relative;
+        flex: 0 0 rem(30);
+        width: rem(30);
+        height: rem(24);
+        cursor: pointer;
+        z-index: 5;
+        span,
+        &::before,
+        &::after {
+            content: "";
+            transition: all 0.3s ease 0s;
+            right: 0;
+            position: absolute;
+            width: 100%;
+            height: rem(2);
+            background: $white-1;
+        }
+        &::before {
+            top: 0;
+        }
+        &::after {
+            bottom: 0;
+        }
+        span {
+            top: calc(50% - rem(1));
+        }
+
+        @media (any-hover: hover) {
+            &:hover {
+                span,
+                &::before,
+                &::after {
+                    background-color: $primary-1;
+                }
+                span {
+                    width: rem(18);
+                }
+            }
+        }
+        .menu-open & {
+            span {
+                width: 0 !important;
+            }
+            &::before {
+                top: calc(50% - rem(1));
+                transform: rotate(-45deg);
+            }
+            &::after {
+                bottom: calc(50% - rem(1));
+                transform: rotate(45deg);
+            }
+        }
+    }
+}

@@ -2,13 +2,20 @@
 // Снипет (HTML): btn
 
 .button {
-	display: inline-flex;
-	padding: 0px 0px;
-	@media (any-hover: hover) {
-		&:hover {
-		}
-	}
-	&._fw {
-		width: 100%;
-	}
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: rem(8) rem(32);
+    font-weight: 700;
+    line-height: 175%;
+    letter-spacing: 0.04em;
+    color: $dark-3;
+    background-color: $primary-1;
+    transition: background-color 0.3s ease 0s;
+    @media (any-hover: hover) {
+        &:hover {
+            background-color: $primary-2;
+        }
+    }
 }
