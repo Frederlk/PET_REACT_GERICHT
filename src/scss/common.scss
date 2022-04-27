@@ -181,3 +181,44 @@
 }
 
 //========================================================================================================================================================
+
+.image-wrap {
+    position: relative;
+    padding: rem(24);
+    @media (max-width: $tablet) {
+        @include adaptiveValue("max-height", 650, 250, 767.98, 320, 1);
+    }
+    @media (max-width: $mobile) {
+        max-height: none;
+        &:not(:last-child) {
+            margin-bottom: rem(48);
+        }
+    }
+    @media (max-width: $mobileSmall) {
+        padding: rem(16);
+    }
+    &::before,
+    &::after {
+        content: "";
+        z-index: -1;
+        position: absolute;
+        @include adaptiveValue("width", 435, 150, 1680, 320, 1);
+        @include adaptiveValue("height", 435, 150, 1680, 320, 1);
+        background-color: $primary-1;
+    }
+    &::before {
+        bottom: rem(0);
+        left: rem(0);
+    }
+    &::after {
+        top: rem(0);
+        right: rem(0);
+    }
+    &-ibg {
+        flex: 1 1 auto;
+        height: 100%;
+        @media (max-width: $mobile) {
+            @include adaptiveValue("padding-bottom", 650, 250, 767.98, 320, 1);
+        }
+    }
+}
