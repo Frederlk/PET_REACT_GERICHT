@@ -9,6 +9,8 @@ import sign from "./../assets/img/sign.svg";
 import spoon from "./../assets/img/spoon.svg";
 import quotes from "./../assets/img/quotes.svg";
 import g from "./../assets/img/g.svg";
+import play from "./../assets/img/play.svg";
+import pause from "./../assets/img/pause.svg";
 
 import facebookIcon from "./../assets/img/socials/facebook.svg";
 import instagramIcon from "./../assets/img/socials/instagram.svg";
@@ -43,6 +45,8 @@ const defaultImages = {
     spoon,
     quotes,
     g,
+    play,
+    pause,
 };
 
 const sliderImages = {

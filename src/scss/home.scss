@@ -332,9 +332,12 @@
 //========================================================================================================================================================
 
 .believe {
+    position: relative;
     @include adaptiveValue("padding-top", 128, 48, 1300, 767.98, 1);
     @include adaptiveValue("padding-bottom", 128, 48, 1300, 767.98, 1);
     &__container {
+        position: relative;
+        z-index: 2;
         display: flex;
         @include adaptiveValue("gap", 96, 48, 1300, 991.98, 1);
     }
@@ -377,6 +380,11 @@
     }
 
     &__bg-ibg {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
     }
 }
 
@@ -405,6 +413,82 @@
     &__image {
         img {
             max-width: 100%;
+        }
+    }
+}
+
+//========================================================================================================================================================
+
+.video {
+    position: relative;
+    &__wrap {
+        @include adaptiveValue("height", 767, 250);
+        @extend %responsiveVideo;
+    }
+
+    &__overlay {
+        cursor: pointer;
+    }
+
+    &__bg-ibg {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        opacity: 1;
+        transition: opacity 0.5s ease 0s;
+        &::after {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background-color: $dark-1;
+            opacity: 0.4;
+            transition: opacity 0.5s ease 0s;
+        }
+        ._view & {
+            opacity: 0;
+            &::after {
+                opacity: 0;
+            }
+        }
+    }
+
+    &__circle {
+        z-index: 2;
+        @include adaptiveValue("width", 120, 80);
+        @include adaptiveValue("height", 120, 80);
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border-radius: 50%;
+        border: rem(1) solid $primary-1;
+        opacity: 1;
+        transition: all 0.5s ease 0s;
+        @media (any-hover: hover) {
+            &:hover {
+                border: rem(1) solid $primary-2;
+            }
+        }
+        ._view & {
+            opacity: 0;
+        }
+        img {
+            padding-left: rem(5);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
     }
 }
