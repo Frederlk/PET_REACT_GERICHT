@@ -82,3 +82,102 @@
         }
     }
 }
+//========================================================================================================================================================
+
+.special-menu {
+    @media (min-width: $tablet) {
+        @include adaptiveValue("padding-top", 32, 24, 1300, 767.98, 1);
+    }
+    &__title {
+        font-weight: 600;
+        @include adaptiveValue("font-size", 45, 32, 1300, 479.98, 1);
+        line-height: 130%;
+        text-align: center;
+        letter-spacing: 0.04em;
+        text-transform: capitalize;
+        font-feature-settings: "tnum" on, "lnum" on;
+        &:not(:last-child) {
+            @include adaptiveValue("margin-bottom", 48, 24, 1300, 479.98, 1);
+        }
+    }
+
+    &__list {
+    }
+
+    &__item {
+        &:not(:last-child) {
+            @include adaptiveValue("margin-bottom", 40, 24, 1300, 767.98, 1);
+        }
+    }
+}
+
+.special-item-menu {
+    &__top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        font-weight: 700;
+        font-size: rem(23);
+        line-height: 130%;
+        letter-spacing: 0.04em;
+        text-transform: capitalize;
+        font-feature-settings: "tnum" on, "lnum" on;
+
+        &:not(:last-child) {
+            @include adaptiveValue("margin-bottom", 8, 4);
+        }
+
+        @media (min-width: $tablet) {
+            @include adaptiveValue("gap", 32, 16, 1300, 991.98, 1);
+        }
+        @media (max-width: $tablet) {
+            @include adaptiveValue("gap", 32, 8, 991.98, 320, 1);
+        }
+    }
+
+    &__title {
+        color: $primary-1;
+        flex: 1 1 auto;
+    }
+
+    &__line {
+        height: rem(1);
+        background-color: $white-1;
+        @media (min-width: $tablet) {
+            @include adaptiveValue("width", 120, 80, 1300, 991.98, 1);
+        }
+        @media (max-width: $tablet) {
+            @include adaptiveValue("width", 120, 80, 991.98, 767.98, 1);
+        }
+        @media (max-width: $mobile) {
+            @include adaptiveValue("width", 320, 48, 767.98, 320, 1);
+        }
+    }
+
+    &__price {
+        text-align: center;
+    }
+
+    &__tags {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        font-family: "Open Sans";
+        line-height: 175%;
+        font-size: rem(16);
+        letter-spacing: 0.04em;
+        color: $gray-1;
+    }
+
+    &__tag {
+        &:not(:last-child) {
+            &::after {
+                content: "|";
+                padding: 0px rem(3);
+            }
+        }
+    }
+}
+
+//========================================================================================================================================================

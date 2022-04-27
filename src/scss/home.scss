@@ -272,3 +272,61 @@
         left: 0;
     }
 }
+
+//========================================================================================================================================================
+
+.special {
+    @include adaptiveValue("padding-top", 128, 48, 1300, 767.98, 1);
+    @include adaptiveValue("padding-bottom", 128, 48, 1300, 767.98, 1);
+    &__container {
+    }
+
+    &__heading {
+        text-align: center;
+        @include adaptiveValue("margin-bottom", 64, 48, 1300, 767.98, 1);
+    }
+
+    &__body {
+        @include adaptiveValue("margin-bottom", 64, 48, 1300, 767.98, 1);
+        display: flex;
+        @media (min-width: $tablet) {
+            @include adaptiveValue("gap", 32, 16, 1300, 991.98, 1);
+        }
+        @media (max-width: $tablet) {
+            gap: rem(48);
+        }
+        @media (max-width: $mobile) {
+            flex-wrap: wrap;
+        }
+    }
+
+    &__menu {
+        flex: 0 1 33.333%;
+        @media (max-width: $tablet) {
+            flex: 0 1 50%;
+        }
+        @media (max-width: $mobile) {
+            flex: 1 1 100%;
+        }
+    }
+
+    &__image-ibg {
+        flex: 0 1 33.333%;
+        @media (max-width: $tablet) {
+            display: none;
+        }
+    }
+
+    &__button-wrap {
+        display: flex;
+        justify-content: center;
+    }
+
+    &__button {
+        @media (max-width: $mobileSmall) {
+            width: 100%;
+        }
+    }
+}
+
+//========================================================================================================================================================
