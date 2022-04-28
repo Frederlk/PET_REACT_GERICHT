@@ -34,9 +34,7 @@ const Gallery = () => {
                     <Swiper
                         modules={[Autoplay]}
                         className="gallery__swiper"
-                        slidesPerView={5}
                         autoplay
-                        spaceBetween={32}
                         grabCursor
                         loop
                         speed={1000}
@@ -51,9 +49,11 @@ const Gallery = () => {
                             },
                             991.98: {
                                 slidesPerView: 4,
+                                spaceBetween: 32,
                             },
                             1300: {
                                 slidesPerView: 5,
+                                spaceBetween: 32,
                             },
                         }}>
                         {slides}
@@ -64,8 +64,22 @@ const Gallery = () => {
                 <div className="body-gallery__container">
                     <div className="body-gallery__content">
                         <HeadingContent className="body-gallery__heading" subtitle="Contact" title="Find Us" />
+                        <div className="body-gallery__text">Lane Ends Bungalow, Whatcroft Hall Lane, Rudheath, CW9 7SG</div>
+                        <ul className="body-gallery__opening">
+                            <div className="body-gallery__label">Opening Hours</div>
+                            <li className="body-gallery__hours">Mon - Fri: 10:00 am - 02:00 am</li>
+                            <li className="body-gallery__hours">Sat - Sun: 10:00 am - 03:00 am</li>
+                        </ul>
+                        <a href="#visitUs" className="body-gallery__button button">
+                            Visit Us
+                        </a>
                     </div>
-                    <ImageBr className="body-gallery__image-wrap" src={images.defaultImages.find} alt="Cocktail" />
+                    <ImageBr
+                        dataDa=".body-gallery__content, 767.98, 2"
+                        className="body-gallery__image-wrap"
+                        src={images.defaultImages.find}
+                        alt="Cocktail"
+                    />
                 </div>
             </div>
             <div className="gallery__bg-ibg">

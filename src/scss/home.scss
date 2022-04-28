@@ -743,18 +743,83 @@
 }
 
 .body-gallery {
+    position: relative;
+    z-index: 2;
     @include adaptiveValue("padding-top", 80, 32, 1300, 767.98, 1);
     @include adaptiveValue("padding-bottom", 80, 32, 1300, 767.98, 1);
     &__container {
+        @media (min-width: $mobile) {
+            display: flex;
+            @include adaptiveValue("column-gap", 120, 64, 1300, 991.98, 1);
+            justify-content: space-between;
+        }
     }
 
     &__content {
+        @media (min-width: $mobile) {
+            @include adaptiveValue("padding-top", 87, 32, 1300, 767.98, 1);
+            @include adaptiveValue("padding-bottom", 87, 32, 1300, 767.98, 1);
+        }
     }
 
     &__heading {
+        &:not(:last-child) {
+            @include adaptiveValue("margin-bottom", 64, 24, 1300, 767.98, 1);
+        }
+    }
+
+    &__text {
+        font-family: "Open Sans";
+        line-height: 175%;
+        letter-spacing: 0.04em;
+        color: $gray-1;
+        &:not(:last-child) {
+            @include adaptiveValue("margin-bottom", 32, 24, 1300, 767.98, 1);
+            @media (max-width: $mobile) {
+                margin-bottom: rem(48);
+            }
+        }
+    }
+
+    &__opening {
+        letter-spacing: 0.04em;
+
+        &:not(:last-child) {
+            @include adaptiveValue("margin-bottom", 64, 32, 1300, 767.98, 1);
+        }
+    }
+
+    &__label {
+        font-weight: 700;
+        font-size: rem(23);
+        line-height: 130%;
+        text-transform: capitalize;
+        font-feature-settings: "tnum" on, "lnum" on;
+        color: $primary-1;
+        &:not(:last-child) {
+            margin-bottom: rem(16);
+        }
+    }
+
+    &__hours {
+        font-family: "Open Sans";
+        line-height: 175%;
+        color: $white-1;
+        &:not(:last-child) {
+            margin-bottom: rem(16);
+        }
+    }
+
+    &__button {
+        @media (max-width: $mobileSmall) {
+            width: 100%;
+        }
     }
 
     &__image-wrap {
+        @media (min-width: $mobile) {
+            flex: 0 0 percent(634, 1300);
+        }
     }
 }
 
