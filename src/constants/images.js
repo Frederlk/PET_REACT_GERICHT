@@ -9,6 +9,7 @@ import sign from "./../assets/img/sign.svg";
 import spoon from "./../assets/img/spoon.svg";
 import quotes from "./../assets/img/quotes.svg";
 import g from "./../assets/img/g.svg";
+import g_2 from "./../assets/img/g_2.svg";
 import play from "./../assets/img/play.svg";
 import pause from "./../assets/img/pause.svg";
 
@@ -45,6 +46,7 @@ const defaultImages = {
     spoon,
     quotes,
     g,
+    g_2,
     play,
     pause,
 };

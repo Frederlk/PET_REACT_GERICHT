@@ -494,3 +494,139 @@
 }
 
 //========================================================================================================================================================
+
+.laurels {
+    @include adaptiveValue("padding-top", 128, 48, 1300, 767.98, 1);
+    @include adaptiveValue("padding-bottom", 128, 48, 1300, 767.98, 1);
+    &__container {
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        gap: rem(80);
+    }
+
+    &__bite {
+        position: absolute;
+        top: 0;
+        left: 0;
+        @include adaptiveValue("left", -246, 24, 1920, 1300, 1);
+        @include adaptiveValue("width", 146, 84, 1920, 1300, 1);
+        @media (max-width: $pc) {
+            left: rem(15);
+            @include adaptiveValue("top", 0, -32, 1300, 991.98, 1);
+        }
+        @media (max-width: $tablet) {
+            top: 0;
+            right: rem(15);
+            left: auto;
+        }
+        @media (max-width: $mobileSmall) {
+            display: none;
+        }
+        img {
+            max-width: 100%;
+        }
+    }
+
+    &__content {
+        @media (min-width: $tablet) {
+            @include adaptiveValue("margin-top", 118, 32, 1300, 767.98, 1);
+            @include adaptiveValue("margin-bottom", 118, 32, 1300, 767.98, 1);
+        }
+        flex: 1 1 auto;
+    }
+
+    &__heading {
+        &:not(:last-child) {
+            @include adaptiveValue("margin-bottom", 64, 32, 1300, 767.98, 1);
+        }
+    }
+
+    &__body {
+    }
+
+    &__image-wrap {
+        position: relative;
+        @media (min-width: $tablet) {
+            max-height: rem(692);
+            flex: 0 1 rem(483);
+        }
+        @media (max-width: $tablet) {
+            @include adaptiveValue("height", 450, 250, 991.98, 320, 1);
+            &:not(:last-child) {
+                @include adaptiveValue("margin-bottom", 48, 32, 991.98, 767.98, 1);
+            }
+        }
+        @media (max-width: $mobileSmall) {
+            margin-left: rem(-15);
+            margin-right: rem(-15);
+        }
+    }
+
+    &__g {
+        position: absolute;
+        z-index: 2;
+        bottom: 0;
+        @include adaptiveValue("left", -72, -24, 1300, 991.98, 1);
+        @include adaptiveValue("width", 360, 150, 1300, 479.98, 1);
+        @media (max-width: $tablet) {
+            left: rem(16);
+            bottom: rem(16);
+        }
+        img {
+            max-width: 100%;
+        }
+    }
+
+    &__img-ibg {
+        height: 100%;
+    }
+}
+
+.body-laurels {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    @include adaptiveValue("row-gap", 64, 32, 1300, 767.98, 1);
+    @include adaptiveValue("column-gap", 32, 16, 1300, 767.98, 1);
+
+    @media (max-width: em(600)) {
+        grid-template-columns: 1fr;
+    }
+    &__item {
+        display: flex;
+        @include adaptiveValue("gap", 32, 16, 1300, 767.98, 1);
+        align-items: center;
+    }
+
+    &__image {
+        flex: 0 0 rem(79);
+        padding-top: rem(8);
+        img {
+            max-width: 100%;
+        }
+    }
+
+    &__body {
+        letter-spacing: 0.04em;
+    }
+
+    &__title {
+        font-weight: 700;
+        font-size: rem(23);
+        line-height: 130%;
+        text-transform: capitalize;
+        font-feature-settings: "tnum" on, "lnum" on;
+        color: $primary-1;
+        &:not(:last-child) {
+            margin-bottom: rem(8);
+        }
+    }
+
+    &__subtitle {
+        font-family: "Open Sans";
+        line-height: 175%;
+        color: $gray-1;
+    }
+}
+
+//========================================================================================================================================================

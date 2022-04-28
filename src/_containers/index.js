@@ -6,3 +6,4 @@ export { default as About } from "./About";
 export { default as Special } from "./Special";
 export { default as Believe } from "./Believe";
 export { default as Video } from "./Video";
+export { default as Laurels } from "./Laurels";
