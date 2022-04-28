@@ -1,4 +1,3 @@
-import { format } from "date-fns/esm";
 import images from "./images";
 
 const { mainScreenImages } = images;
@@ -97,4 +96,33 @@ const laurels = [
     },
 ];
 
-export default { mainScreenSlides, wineBeer, cocktails, laurels };
+const { sliderImages } = images;
+const gallerySlides = [
+    {
+        image: sliderImages.slider01,
+        alt: "Fried fillet",
+        link: "FriedFillet",
+    },
+    {
+        image: sliderImages.slider02,
+        alt: "Scrambled eggs",
+        Link: "ScrambledEggs",
+    },
+    {
+        image: sliderImages.slider03,
+        alt: "Sandwich",
+        Link: "Sandwich",
+    },
+    {
+        image: sliderImages.slider04,
+        alt: "Sandwich egg",
+        Link: "SandwichEgg",
+    },
+    {
+        image: sliderImages.slider05,
+        alt: "Sandwich Meat",
+        Link: "SandwichMeat",
+    },
+];
+
+export default { mainScreenSlides, wineBeer, cocktails, laurels, gallerySlides };

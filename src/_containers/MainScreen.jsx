@@ -1,5 +1,5 @@
 import React from "react";
-import { images, data } from "../constants";
+import { data } from "../constants";
 import { HeadingContent } from "../_components";
 
 import { Keyboard, Autoplay, Pagination } from "swiper";
