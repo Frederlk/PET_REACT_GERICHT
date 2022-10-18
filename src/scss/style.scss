@@ -8,13 +8,6 @@
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:regular,600,italic&display=swap");
 //&display=swap - добавить при подключении через плагин
 
-// Подключить если есть локальные файлы шрифтов
-//@import "fonts/fonts";
-
-// Подключение иконочных шрифтов ==============================================================================================================================================================================================================================================================================
-// Подключить если есть файл иконочного шрифта
-//@import "fonts/icons";
-
 // Шрифт по умолчанию ==============================================================================================================================================================================================================================================================================
 $fontFamily: "Cormorant Upright";
 $fontSize: rem(16); // где 14(px) - размер шрифта по умолчанию из макета
@@ -62,6 +55,7 @@ $responsiveType: 1;
 body {
     color: $white-1;
     background-color: $dark-3;
+    @include scrollbars(rem(12), $primary-1, $dark-3);
     // Скролл заблокирован
     .lock & {
         overflow: hidden;
@@ -88,49 +82,15 @@ body {
     }
 }
 // Ограничивающий контейнер ======================================================================================================================================================================================================================
-
-/*
-(i) Стили будут применяться ко 
-всем классам содержащим *__container
-Например header__container, main__container и т.д.
-Снипет (HTML): cnt
-*/
-@if ($responsiveType==1) {
-    // Отзывчивая
-    [class*="__container"] {
-        @if ($maxWidthContainer>0) {
-            max-width: rem($maxWidthContainer);
-            box-sizing: content-box;
-            margin: 0 auto;
-        }
-        @if ($containerPadding>0) {
-            padding: 0 rem(math.div($containerPadding, 2));
-        }
-    }
-} @else {
-    // По брейк-поинтам
-    [class*="__container"] {
+// Отзывчивая
+[class*="__container"] {
+    @if ($maxWidthContainer>0) {
+        max-width: rem($maxWidthContainer);
+        box-sizing: content-box;
         margin: 0 auto;
-        @if ($maxWidthContainer>0) {
-            max-width: rem($maxWidthContainer);
-            box-sizing: content-box;
-        } @else {
-            @if ($containerPadding>0) {
-                padding: 0 rem(math.div($containerPadding, 2));
-            }
-        }
-        @media (max-width: $pc) {
-            max-width: rem(970);
-        }
-        @media (max-width: $tablet) {
-            max-width: rem(750);
-        }
-        @media (max-width: $mobile) {
-            max-width: none;
-            @if ($containerPadding>0 and $maxWidthContainer>0) {
-                padding: 0 rem(math.div($containerPadding, 2));
-            }
-        }
+    }
+    @if ($containerPadding>0) {
+        padding: 0 rem(math.div($containerPadding, 2));
     }
 }
 

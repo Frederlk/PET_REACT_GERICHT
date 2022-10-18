@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-scroll";
 import { data } from "../constants";
 import { HeadingContent } from "../_components";
 
@@ -17,7 +18,13 @@ const MainScreen = () => {
             el: ".main-screen__pagination",
             clickable: true,
             renderBullet: (index, className) => {
-                return '<span class="' + className + '">' + (index + 1 < 10 ? `0${index + 1}` : index + 1) + "</span>";
+                return (
+                    '<span class="' +
+                    className +
+                    '">' +
+                    (index + 1 < 10 ? `0${index + 1}` : index + 1) +
+                    "</span>"
+                );
             },
         },
     };
@@ -53,15 +60,21 @@ const MainScreen = () => {
                             speed={1000}
                             observer={true}
                             observeParents={true}
-                            {...params}>
+                            {...params}
+                        >
                             {slides}
                         </Swiper>
                     </div>
 
-                    <a href="#" className="main-screen__scroll scroll-main-screen">
+                    <Link
+                        className="main-screen__scroll scroll-main-screen"
+                        to="about"
+                        smooth={true}
+                        duration={500}
+                    >
                         <span className="scroll-main-screen__line"></span>
                         <div className="scroll-main-screen__text">Scroll</div>
-                    </a>
+                    </Link>
                 </div>
                 <div className="main-screen__pagination"></div>
             </div>
